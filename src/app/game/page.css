@@ -1,0 +1,260 @@
+:root{
+    --cl:4rem;
+    --bw:3px solid white;
+    --board-l: calc(var(--cl)*3.3);
+}
+.body{
+    width: 100dvw;
+    height: 100dvh;
+    position: relative;
+}
+.turn{
+    position: absolute;
+    top:0;
+    border: 1px solid black;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 0 0 5px 5px;
+    background-color: orange;
+}
+.fc{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.cell{
+    width: var(--cl);
+    height: var(--cl);
+    border-right: var(--bw);
+    border-bottom: var(--bw);
+}
+.xno{
+    font-size: 1.7rem;
+}
+.rc{
+    border-right: 0;
+}
+.bc{
+    border-bottom: 0;
+}
+
+.board-container{
+    padding: 4rem;
+    background-color: rgba(0,0,0,0.8);
+}
+.board{
+    max-height: var(--board-l);
+    max-width: var(--board-l);  
+    position: relative;
+}
+
+span.cross-out, .h2{
+    height: 1px;
+    width: 100%;
+    border: 3px solid red;
+    border-radius: 3px;
+    position: absolute;
+}
+
+.h1{
+    top:calc(var(--cl)/2);
+}
+.h3{
+    bottom: calc(var(--cl)/2);
+}
+.v2{
+    transform: rotate(90deg);
+}
+.v3{
+    transform: rotate(90deg);
+    left: var(--cl);
+}
+.v1{
+    transform: rotate(90deg);
+    left: calc(-1* var(--cl));
+}
+.x1{
+    transform: rotate(45deg);
+}
+.x2{
+    transform: rotate(-45deg);
+}
+.clear-board, .rules{
+    position: absolute;
+    font-size: 1.2rem;
+    background-color: orangered;
+    color: black;
+    font-weight: bolder;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    right: 2rem;
+    bottom: 4rem;
+}
+
+.rules{
+    left: 2rem;
+    width: fit-content;
+    background-color: rgba(216, 20, 20, 0.8);
+    color: wheat;
+}
+
+.restart-confirmation{
+    position: absolute;
+    z-index: 1;
+    background-color: aliceblue;
+    font-size: 2rem;
+    text-align: center;
+    flex-direction: column;
+    width: 25rem;
+    height: 15rem;
+    padding: 2rem auto;
+
+}
+.choice{
+    padding: 0.6rem 1.2rem;
+    margin: 2rem 1rem;
+    border-radius: 3px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.choice.y{
+    background-color: rgba(233, 8, 8, 0.7);
+}
+.hide{
+    display: none;
+}
+
+.score{
+    position: absolute;
+    left: 0;
+    top:3rem;
+    border: 2px solid black;
+    width: 13rem;
+    background-color: navajowhite;
+    padding:  1rem;
+    font-size: 2rem;
+}
+
+form.chat{
+    position: absolute;
+    bottom: 2rem;
+    gap: 1rem;
+}
+textarea[name='chat']{
+    text-wrap: wrap;
+    word-wrap: break-word;
+    word-break: break-all;
+    border-radius: 5px;
+    padding: 6px;
+}
+.donate{
+    position: absolute;
+    left: 2rem;
+    color: lightgreen;
+}
+.skip-turn{
+    position: absolute;
+    left: 1.4rem;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px 8px;
+
+}
+.feedback-container{
+    position: absolute;
+    top:1rem;
+    /* transform: translateX(-20%); */
+    overflow: auto;
+    z-index: 5;
+    width: 100dvw;
+    left: 0;
+    /* border: 2px solid red; */
+    background-color: rgba(128,128,128,0.7)
+}
+.feedback{
+    /* min-width: 30rem; */
+    height: 90dvh;
+    width: 40rem;
+    max-width: 100dvw;
+    margin: auto 1rem;
+    /* border: 4px solid green; */
+    /* background-color: grey; */
+    
+}
+.feedback-icon{
+    position: absolute;
+    right: 3rem;
+    color: white;
+    background-color: grey;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width:1000px) {
+    form.chat{
+        bottom: 2rem;
+        flex-direction: row;
+    }
+    .skip-turn{
+        top:15rem;
+    }
+    .score{
+    top:5rem;
+    padding:  0.7rem;
+    font-size: 1rem;
+    }
+    .clear-board{
+        right: 0;
+        padding: 1rem;
+    }
+    .rules{
+        left: 0;
+        padding: 1rem;
+    }
+
+
+}
+@media screen and (max-width:850px) {
+    .feedback{
+        width: 40rem;
+    }
+    form.chat{
+        bottom: 15rem;
+    }
+    .message{
+        max-width: 50dvw;
+        /* position: absolute; */
+        transform: translateX(100%);
+        right: 0;
+        /* translate: 100% none; */
+        border: 5px solid green;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .feedback{
+        width: 20rem;
+    }
+    form.chat{
+        bottom: 10rem;
+    }
+}
+.feedback-close{
+    position: absolute;
+    z-index: 6;
+    top:2rem;
+    right: 2rem;
+    cursor: pointer;
+    background-color: gray;
+    border: 2px solid black;
+    border-radius: 50%;
+    padding: 8px;
+    /* right: -2rem; */
+}
+.hide{
+    display: none;
+}
