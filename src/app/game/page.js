@@ -1,4 +1,5 @@
-'use client'
+'use client';
+import { useSearchParams } from 'next/navigation';
 import { useState, useEffect} from 'react';
 import io from 'socket.io-client';
 import './page.css';
@@ -10,8 +11,12 @@ import Link from 'next/link';
 const socket = io('https://tictacserver.adaptable.app/');
 
 
-export default function Page(props){
-    
+export default function Page(){
+    const searchParams = useSearchParams();
+      const props = {};
+      searchParams.forEach((value, key) => {
+        props[key] = value;
+      });
     const inviteId = props?.searchParams?.gid ?? false;
     const host = props?.searchParams?.host ?? false;
 
