@@ -37,7 +37,7 @@ export default function Page(props){
               }
             setGameId(id);
             sessionStorage.setItem("xnoGid",id)
-            const inviteLink =  window.location + "game?gid="+ id + (inverted?"&i":"");
+            const inviteLink =  window.origin + "/game?gid="+ id + (inverted?"&i":"");
             try{
                 navigator.clipboard.writeText(inviteLink);
                 toast("Invite Link Copied to clipboard");
