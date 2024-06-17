@@ -2,10 +2,11 @@
 import Image from 'next/image';
 import { useState,useEffect } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-export default function Home(props) {
-  const error = props?.searchParams?.error ?? false;
+export default function Home() {
+  const error =  useSearchParams().get('error') ?? false;
   const [div, setDiv] = useState(false);
   const [name, setName] = useState('');
 
